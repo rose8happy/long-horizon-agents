@@ -1,1 +1,5 @@
-继续本项目规划者工作。读取 `.agent/roles/planner.md`、`docs/agent/MISSION.md`、`PLAN.md` 与 `CURRENT.md`，按需读取新增完成结果及相关历史。审查整体目标、证据缺口、任务价值与下一优先级；有依据时更新计划和重要决定，注明执行者可在安全边界接收的变化。保持执行资源的唯一负责人，已有授权内不追加无依据限制。完成审查后按关键结果或低频总览安排本角色既有唤醒；无实质变化保持安静，仅报告重要方向变化、失败或需用户处理事项。
+# planner-wake
+
+维护源：[可加载 skill 中的对应文件](../../skills/long-horizon-agents/assets/adapters/codex/planner-wake.md)。
+
+此路径保留为旧链接的阅读入口；初始化器使用自包含运行包中的源文件。

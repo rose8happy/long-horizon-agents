@@ -1,0 +1,6 @@
+interface:
+  display_name: "Long Horizon Agents"
+  short_description: "Plan, execute, and resume durable long-running projects"
+  default_prompt: "Use $long-horizon-agents to adopt or resume this project and advance the next authorized deliverable."
+policy:
+  allow_implicit_invocation: true

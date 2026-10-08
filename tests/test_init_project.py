@@ -10,7 +10,7 @@ import unittest
 from unittest.mock import patch
 
 
-SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "init_project.py"
+SCRIPT = Path(__file__).resolve().parents[1] / "skills" / "long-horizon-agents" / "scripts" / "init_project.py"
 SPEC = importlib.util.spec_from_file_location("init_project", SCRIPT)
 init_project = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = init_project
@@ -55,6 +55,9 @@ class InitializerTests(unittest.TestCase):
         self.assertIn("Example Project", readme)
         self.assertIn("../../.agent/codex/setup.md", readme)
         self.assertEqual((self.target / "AGENTS.md").read_bytes().count(init_project.START), 1)
+        instructions = (self.target / "AGENTS.md").read_text(encoding="utf-8")
+        self.assertIn("invoke $long-horizon-agents", instructions)
+        self.assertIn("If the skill is unavailable", instructions)
 
     def test_default_name_and_idempotence_preserve_modified_files(self):
         self.initialize()
@@ -65,6 +68,13 @@ class InitializerTests(unittest.TestCase):
         outcomes = self.initialize(name="Different name")
         self.assertTrue(all(line.startswith("SKIPPED ") for line in outcomes))
         self.assertEqual(self.snapshot(), before)
+
+    def test_existing_marked_block_is_preserved_without_upgrade(self):
+        self.target.mkdir()
+        original = init_project.START + b"\nCustom older workflow\n" + init_project.END + b"\n"
+        (self.target / "AGENTS.md").write_bytes(original)
+        self.initialize()
+        self.assertEqual((self.target / "AGENTS.md").read_bytes(), original)
 
     def test_project_name_quotes_keep_configuration_valid(self):
         source = self.source / "templates/project/agent.config.example.toml"
