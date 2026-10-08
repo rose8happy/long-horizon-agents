@@ -31,6 +31,14 @@ flowchart LR
 
 需要 Python 3.10+，无需安装 Python 依赖。以下命令可以在 PowerShell、bash 或 zsh 中运行。
 
+**新项目**：在 GitHub 点击 **Use this template → Create a new repository**，克隆生成的仓库后，在其中运行：
+
+```sh
+python scripts/init_project.py --target . --name "我的长期项目"
+```
+
+**已有项目**：将模板仓库拉到旁边，再指定你的项目目录：
+
 ```sh
 git clone https://github.com/rose8happy/long-horizon-agents.git
 cd long-horizon-agents
