@@ -22,8 +22,16 @@ wake_mode = "next_decisive_signal_eta"
 
 [coordination]
 single_launch_owner_per_resource = true
-plan_adoption = "safe_boundary"
+plan_adoption = "evidence_and_actual_change_boundary"
 history = "docs/agent/HISTORY.md"
+
+[communication]
+# 以下记录已有授权与真实身份；配置文件不会创建会话、授予权限或发送消息。
+mode = "host_peer_messages_or_shared_documents"
+planner_chat_id = ""
+executor_chat_id = ""
+host = ""
+authorization = "引用用户对这两个角色双向协作的授权与范围；没有时不填写为已授权"
 
 # 任务范围和任何实际费用 / 资源限制以 MISSION 与用户指令为准。
 # 不在此默认设置任务硬停、账单准入或反复审批。

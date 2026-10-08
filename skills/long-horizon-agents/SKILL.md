@@ -18,9 +18,15 @@ For a new adoption, follow [project setup](references/project-setup.md). Initial
 
 ## Planner turn
 
-Read the project's planner instructions, or [the bundled planner role](assets/roles/planner.md) when none exist. Find the most consequential gap between current evidence and the overall goal. Publish a short versioned plan with executable priorities, dependencies, completion criteria, and the next decision condition. Own `PLAN` and `DECISIONS`; the executor owns live state, task cards, and history. Changes to running work take effect at a safe boundary.
+Read the project's planner instructions, or [the bundled planner role](assets/roles/planner.md) when none exist. Find the most consequential gap between current evidence and the overall goal. Publish a short versioned plan with executable priorities, dependencies, practical completion criteria, and the next decision condition. Own `PLAN` and `DECISIONS`; the executor owns live state, task cards, and history.
 
-Keep routine execution autonomous. Do not turn your review, an old closure statement, or an invented spending, timing, identity, or numerical threshold into a new approval gate. Respect actual user constraints and project-specific comparison requirements.
+Treat the plan as a revisable proposal. State uncertain assumptions, use actual evidence to decide, and remove unsupported gates instead of forcing work through an obsolete contract. Change running work at a boundary justified by recovery, data integrity, or valid comparison; do not finish a useless run merely because it was planned. Record the reason and consequences of a material change. Keep routine execution autonomous, respect real user constraints, and do not invent spending, timing, identity, or numerical approval thresholds.
+
+## Coordinate with the other role
+
+When the user has authorized the assigned planner and executor to communicate, use the host's supported peer-message tools in both directions without asking again for each message. Resolve their actual chat identities and communication scope from the project map or existing trusted setup. Send actionable assignments, new evidence, blockers, disagreements, and handoff requests with links to the relevant plan or task. Messages do not replace durable state or extend user authorization.
+
+Routine assignments and local adjustments need no approval handshake. Transferring resource or document ownership does need explicit acceptance and an effective change point; until then the existing owner remains responsible. Send a follow-up only for a new result, decision, actionable question, or overdue ownership handoff. Avoid status ping-pong and duplicate wakes. If peer tools are unavailable, use shared documents and report that messages were not sent. Never guess a destination or create another chat solely because this harness has two roles.
 
 ## Executor turn
 
@@ -28,9 +34,10 @@ Read the project's executor instructions, or [the bundled executor role](assets/
 
 - Service due success, failure, or resource-release signals first. Reconcile real outputs and exit status with the task's completion criteria. A lost connection or missing PID alone proves neither success nor failure.
 - Execute the next authorized dependent step, and continue useful independent preparation or analysis while other work runs. Existing task programs should handle short predetermined chains.
-- Preserve existing work and active run contracts. Reuse meaningful input, resource, and recovery checks; repeat them only for an actual change or unresolved risk. One designated owner launches, stops, or resumes work on each resource.
+- Preserve existing work and necessary recovery and comparison semantics. Adapt authorized implementation and sequencing to actual evidence; notify the planner of material deviations with reasons, without making routine adaptation wait for approval. Reuse meaningful checks, repeating only for an actual change or unresolved risk. One designated owner launches, stops, or resumes work on each resource.
 - Deliver and consume complete results, including negative findings and real failed-run costs. Update compact `CURRENT`, task evidence, and valuable `HISTORY` entries. Sync useful small records to the project's chosen evidence center during work.
 - Continue toward the overall objective after a local stage closes. Do not manufacture tasks just to fill hardware.
+- When the same approach fails again without new information, change the approach, diagnose the missing fact, or send a focused peer question. Choose a useful next step rather than adding an arbitrary retry count. Delegate independent, bounded deliveries when the user and host permit it; give each an owner, disjoint scope, and a concrete return result.
 
 Use [the coordination protocol](references/protocol.md) for a real ownership, handoff, recovery, or recording question; do not reload it ceremonially every turn. Specialized coding, research, data, and visualization skills remain responsible for their own work.
 

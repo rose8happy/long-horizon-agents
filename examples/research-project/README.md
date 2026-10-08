@@ -64,7 +64,7 @@ next_action: 执行配对分析，写入比较表和限制说明
 
 ## 一个可以直接接手的任务
 
-任务合同保存到 `docs/agent/tasks/compare-fresh-pair.md`：
+任务说明保存到 `docs/agent/tasks/compare-fresh-pair.md`：
 
 ```yaml
 name: compare-fresh-pair
@@ -73,7 +73,7 @@ plan_version: 3
 purpose: 判断候选损失函数的初步收益及其适用范围
 dependencies:
   - fresh-control 和 fresh-candidate 均有成功终止记录
-  - 两者的 support、划分及评估版本符合本轮比较合同
+  - 两者使用共同 support、划分及评估版本，使差异能够归因于方法
 acceptance:
   - 对两个完整结果计算同一组预先规定的总体与分层指标
   - 说明单个种子和低覆盖分层样本量对结论的限制
@@ -109,7 +109,7 @@ cost_observed: {cpu_minutes: 18, gpu_hours: 0, output_mb: 3}
 
 ## 计划更新与等待
 
-规划者可以根据新文献或完整结果提出版本 4。执行者把待采纳版本写入状态，在当前任务提交结果、释放资源或形成可恢复检查点后采纳。运行中任务继续遵守原合同；若用户要求立即停止，则按明确指令处理并保存可恢复状态。
+规划者可以根据新文献或完整结果提出版本 4，并在已有双向沟通授权下向执行者发送有依据的调整建议。执行者可以自主改变常规实现和顺序，重要变化写回状态。若证据表明当前输入错误或原问题已失去价值，应按实际恢复需要保存状态、调整或停止，而不是因为旧计划而必须跑完。改变比较条件时保留原结果、成本及解释范围；共同支持等实际归因需要仍然成立。
 
 若后续训练尚在运行，执行者先完成不依赖其结果的必要工作。没有这种工作时记录 `WAITING` 和下一次决定所需信号。优先等待终止事件；平台只有定时唤醒时，依据 ETA 安排一次唤醒。ETA 未知时按首个有意义的进度量安排校准，未到结果则根据实际进展更新 ETA 并退避，避免密集轮询。
 
@@ -118,7 +118,7 @@ cost_observed: {cpu_minutes: 18, gpu_hours: 0, output_mb: 3}
 ```text
 按 .agent/roles/executor.md 恢复本项目。
 读取 docs/agent/MISSION.md、PLAN.md、CURRENT.md，相关 HISTORY 按需读取；
-读取 CURRENT 指向的任务合同与证据，处理到期信号和中断恢复。
+读取 CURRENT 指向的任务说明与证据，处理到期信号和中断恢复。
 在任务安全边界采纳规划者依 .agent/roles/planner.md 提交的计划。
 执行下一个已授权且依赖满足的任务；有结果后记录历史与资源归属。
 若仍只能等待，按事件或当前 ETA 更新同一唤醒安排并结束本轮；

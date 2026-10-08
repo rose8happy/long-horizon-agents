@@ -106,7 +106,7 @@ Start with [MISSION.md](MISSION.md), then [PLAN.md](PLAN.md) and
 [CURRENT.md](CURRENT.md). Record decisions in [DECISIONS.md](DECISIONS.md)
 and completed work in [HISTORY.md](HISTORY.md).
 
-Use [templates/TASK.md](templates/TASK.md) for a task contract. Read the
+Use [templates/TASK.md](templates/TASK.md) for a revisable task brief. Read the
 [planner role](../../.agent/roles/planner.md) and
 [executor role](../../.agent/roles/executor.md). Review the
 [example configuration](../../.agent/agent.config.example.toml) and follow

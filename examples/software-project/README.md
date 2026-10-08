@@ -45,7 +45,7 @@ next_review: 回填完成后依据覆盖率、冲突样本和兼容结果决定�
 state: ACTIVE
 adopted_plan: 2
 active_task: backfill-addresses
-task_contract: docs/agent/tasks/backfill-addresses.md
+task_brief: docs/agent/tasks/backfill-addresses.md
 resources:
   writer-slot: {owner: executor, task: backfill-addresses, state: reserved}
   test-worker: {owner: executor, task: null, state: idle}
@@ -118,7 +118,7 @@ cost_observed: {worker_minutes: 24, test_rows: 120000, output_mb: 2}
 
 ## 计划更新与调度
 
-规划者可能提出版本 3，增加一个必要的冲突处理步骤。执行者在批次提交并保存检查点、或任务完成后采纳新计划，保持已运行任务的合同可解释。紧急用户指令优先处理，并记录停止点。
+规划者可能根据实际冲突提出版本 3，通过已授权的消息向执行者说明证据与建议。执行者自主调整常规方法；在批次提交并保存检查点后改变回填步骤，是为了防止重复更新或丢失进度，不是为了遵守预先合同。用户要求停止时优先处理，并记录停止点。若转让写入资源的负责人，须由新负责人明确接受，避免两个角色同时写入。
 
 程序运行时可发出完成事件。仅支持定时唤醒的平台则依据剩余范围与实际吞吐估计 ETA；无可靠 ETA 时，在首个有意义的进度量后校准。唤醒未取得终止信号时按新证据延后并退避；不要按固定短间隔反复查进程。只有等待中的任务结果依赖才阻塞后续工作。
 
@@ -127,7 +127,7 @@ cost_observed: {worker_minutes: 24, test_rows: 120000, output_mb: 2}
 ```text
 按 .agent/roles/executor.md 恢复本项目。
 读取 docs/agent/MISSION.md、PLAN.md、CURRENT.md，相关 HISTORY 按需读取，
-再读取当前任务合同和程序持久状态，处理完成、失败及重启恢复。
+再读取当前任务说明和程序持久状态，处理完成、失败及重启恢复。
 遵守 .agent/roles/planner.md 所定义的计划协作，在安全边界采纳更新。
 执行下一个依赖满足且已授权的任务，记录证据和资源归属。
 若只能等待，依事件或当前 ETA 更新同一唤醒安排；

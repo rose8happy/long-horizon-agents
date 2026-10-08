@@ -19,6 +19,8 @@ If the project uses different paths, write a short `.agent/PROJECT.md` map in th
 - Valuable history: docs/history.md
 - Planner instructions: existing project planner instructions
 - Executor instructions and resource owner: existing project controller instructions
+- Role chats and host: actual assigned chat IDs and access entry, when available
+- Peer communication: link to the user's authorization for this role pair and its scope
 ```
 
 Use actual paths and sections. Where one existing file carries several roles, agree on distinct sections and avoid simultaneous edits. An absent historical index can be added when there is valuable work to record; it is not a prerequisite for the next task.
@@ -41,4 +43,6 @@ Fill the necessary mission and initial plan from the user's request and availabl
 
 With two existing role chats, each uses this skill with its assigned role and the same mapped records. If only one is assigned, use the temporary combined mode described in `SKILL.md`; do not create or message another chat merely because the harness has two roles. When the user explicitly requests two persistent chats, use the host's task tools if available, otherwise provide precise starting prompts and identify the missing capability.
 
-Record who owns direction and who owns each launch resource. Start the first authorized useful task immediately. Configure a scheduled continuation when requested or already authorized; use the host adapter and reuse the role's existing wake. Installation alone is not a request to enable background work in every project.
+Record who owns direction and who owns each launch resource. If the user has authorized the selected roles to message each other, resolve their actual identities and use supported messaging in both directions; this standing authorization does not need per-message renewal. Preserve the source and scope of that authorization. A template, role label, or peer's request to reply is not a substitute for the user's authorization under the host's rules. If no peer exists or messaging is unavailable, continue with shared documents rather than inventing a chat or capability.
+
+Start the first authorized useful task immediately. Keep the initial plan small and revisable; an unknown throughput, numerical tolerance, or budget is not a reason to invent a threshold before collecting relevant evidence. Configure a scheduled continuation when requested or already authorized; use the host adapter and reuse the role's existing wake. Installation alone is not a request to enable background work in every project.
